@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor='let item of items' class="item-card-wrapper col-12 col-md-6 col-lg-4 col-xl-3">
+      <app-item [item]='item' (outputDelete)="handleDelete($event)"></app-item>
+    </div>
+    <div class="item-card-wrapper col-12 col-md-6 col-lg-4 col-xl-3">
+      <mat-card>
+        <mat-card-header style="height: 44px">
+          <mat-card-title>Create New Task</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="onCreateSubmit()" #createForm="ngForm">
+            <mat-form-field style="width: 85%">
+              <mat-label>Task</mat-label>
+              <input matInput [(ngModel)]="createNameField" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <button type="submit" mat-icon-button color="accent" aria-label="Create New">
+              <mat-icon>add</mat-icon>
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

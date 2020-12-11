@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-subtitle>Created {{getCreatedDisplay()}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-icon-button color="primary" aria-label="Rename" (click)="openRenameDialog()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" aria-label="Delete" (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <mat-checkbox [(ngModel)]="item.isComplete" style="margin-left: 12px;" (change)="save()">Completed</mat-checkbox>
+  </mat-card-content>
+</mat-card>
